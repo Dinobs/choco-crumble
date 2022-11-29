@@ -1,5 +1,6 @@
 package com.example.chococrumble
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.example.chococrumble.ui.CategoriesAdapter
 import com.example.chococrumble.databinding.ActivityMainBinding
 import com.example.chococrumble.model.Category
 import com.example.chococrumble.request.GetCategoriesRequest
+import com.example.chococrumble.ui.CategoryActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var categoryListRecyclerView: RecyclerView
@@ -37,8 +39,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshView(categories: List<Category>) {
-        categoriesAdapter = CategoriesAdapter(categories)
+        categoriesAdapter = CategoriesAdapter(categories, ::openCategoryActivity)
         categoryListRecyclerView.adapter = categoriesAdapter
         categoryListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
+    }
+
+    private fun openCategoryActivity(category: String) {
+        val intent = Intent(applicationContext, CategoryActivity::class.java)
+        intent.putExtra("category", category)
+        startActivity(intent)
     }
 }
