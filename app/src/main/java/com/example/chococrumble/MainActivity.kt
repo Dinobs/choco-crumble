@@ -2,10 +2,43 @@ package com.example.chococrumble
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.chococrumble.ui.CategoriesAdapter
+import com.example.chococrumble.databinding.ActivityMainBinding
+import com.example.chococrumble.model.Category
+import com.example.chococrumble.request.GetCategoriesRequest
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var categoryListRecyclerView: RecyclerView
+    private lateinit var categoriesAdapter: CategoriesAdapter
+
+    private lateinit var categoryBinding: ActivityMainBinding
+    private var getCategoriesRequest: GetCategoriesRequest = GetCategoriesRequest()
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        categoryBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(categoryBinding.root)
+
+        categoryListRecyclerView = categoryBinding.categoryList
+
+        getCategoriesRequest.request(::displayCategories)
+
+    }
+
+    private fun displayCategories(categories: List<Category>) {
+        categories?.let { categories ->
+            runOnUiThread {
+                refreshView(categories)
+            }
+        }
+    }
+
+    private fun refreshView(categories: List<Category>) {
+        categoriesAdapter = CategoriesAdapter(categories)
+        categoryListRecyclerView.adapter = categoriesAdapter
+        categoryListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
     }
 }
