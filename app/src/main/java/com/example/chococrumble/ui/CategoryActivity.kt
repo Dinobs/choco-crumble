@@ -1,6 +1,7 @@
 package com.example.chococrumble.ui
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,8 @@ class CategoryActivity: AppCompatActivity()  {
     private lateinit var recipeBinding: ActivityCategoryBinding
     private var getRecipesRequest: GetRecipesRequest = GetRecipesRequest()
 
+    private lateinit var categoryTextView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,8 +25,13 @@ class CategoryActivity: AppCompatActivity()  {
         setContentView(recipeBinding.root)
 
         recipeListRecyclerView = recipeBinding.recipeList
+        categoryTextView = recipeBinding.categoryTitleTextview
 
-        getRecipesRequest.request(::displayRecipes)
+        val category: String? = intent.getStringExtra("category")
+        categoryTextView.text = category
+
+        getRecipesRequest.request(category, ::displayRecipes)
+
 
     }
 

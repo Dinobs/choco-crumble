@@ -9,11 +9,14 @@ import java.io.IOException
 import java.net.URL
 
 class GetRecipesRequest {
-    private val url = URL("https://themealdb.com/api/json/v1/1/filter.php?c=Seafood")
-    private val request = Request.Builder().url(url).build()
+    private val url: String = "https://themealdb.com/api/json/v1/1/filter.php?c="
+
     private val client = OkHttpClient()
 
-    fun request(callback: (List<Recipe>) -> Unit) {
+    fun request(category: String?, callback: (List<Recipe>) -> Unit) {
+        val tmpUrl = URL(url + category)
+        val request = Request.Builder().url(tmpUrl).build()
+
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("OKHTTP", e.localizedMessage)
