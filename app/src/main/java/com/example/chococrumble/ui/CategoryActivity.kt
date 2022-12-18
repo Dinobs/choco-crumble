@@ -1,5 +1,6 @@
 package com.example.chococrumble.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -31,8 +32,6 @@ class CategoryActivity: AppCompatActivity()  {
         categoryTextView.text = category
 
         getRecipesRequest.request(category, ::displayRecipes)
-
-
     }
 
     private fun displayRecipes(recipes: List<Recipe>) {
@@ -44,8 +43,14 @@ class CategoryActivity: AppCompatActivity()  {
     }
 
     private fun refreshView(recipes: List<Recipe>) {
-        recipesAdapter = RecipesAdapter(recipes)
+        recipesAdapter = RecipesAdapter(recipes, ::openRecipeActivity)
         recipeListRecyclerView.adapter = recipesAdapter
         recipeListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
+    }
+
+    private fun openRecipeActivity(recipeId: Int) {
+        val intent = Intent(applicationContext, RecipeActivity::class.java)
+        intent.putExtra("recipe_id", recipeId)
+        startActivity(intent)
     }
 }
