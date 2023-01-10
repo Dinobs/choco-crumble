@@ -8,7 +8,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/recipe_imageview"
-        android:paddingHorizontal="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
