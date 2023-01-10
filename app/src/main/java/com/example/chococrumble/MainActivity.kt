@@ -1,14 +1,16 @@
 package com.example.chococrumble
 
+import android.app.ActionBar
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chococrumble.ui.CategoriesAdapter
 import com.example.chococrumble.databinding.ActivityMainBinding
 import com.example.chococrumble.model.Category
 import com.example.chococrumble.request.GetCategoriesRequest
+import com.example.chococrumble.ui.CategoriesAdapter
 import com.example.chococrumble.ui.CategoryActivity
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var categoryBinding: ActivityMainBinding
     private var getCategoriesRequest: GetCategoriesRequest = GetCategoriesRequest()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         categoryListRecyclerView = categoryBinding.categoryList
 
         getCategoriesRequest.request(::displayCategories)
-
     }
 
     private fun displayCategories(categories: List<Category>) {
