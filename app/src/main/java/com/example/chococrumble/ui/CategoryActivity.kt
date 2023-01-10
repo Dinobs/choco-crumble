@@ -18,6 +18,7 @@ class CategoryActivity: AppCompatActivity()  {
     private var getRecipesRequest: GetRecipesRequest = GetRecipesRequest()
 
     private lateinit var categoryTextView: TextView
+    private lateinit var categoryDescriptionTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +28,12 @@ class CategoryActivity: AppCompatActivity()  {
 
         recipeListRecyclerView = recipeBinding.recipeList
         categoryTextView = recipeBinding.categoryTitleTextview
+        categoryDescriptionTextView = recipeBinding.categoryDescriptionItemTextview
 
         val category: String? = intent.getStringExtra("category")
+        val description: String? = intent.getStringExtra("description")
         categoryTextView.text = category
+        categoryDescriptionTextView.text = description
 
         getRecipesRequest.request(category, ::displayRecipes)
     }

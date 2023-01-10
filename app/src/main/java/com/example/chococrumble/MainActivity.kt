@@ -45,9 +45,10 @@ class MainActivity : AppCompatActivity() {
         categoryListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
     }
 
-    private fun openCategoryActivity(category: String) {
+    private fun openCategoryActivity(category: String?, description: String?) {
         val intent = Intent(applicationContext, CategoryActivity::class.java)
         intent.putExtra("category", category)
+        intent.putExtra("description", description)
         startActivity(intent)
     }
 }
