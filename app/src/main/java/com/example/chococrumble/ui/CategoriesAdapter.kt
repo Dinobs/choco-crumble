@@ -16,7 +16,7 @@ class CategoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var imageView: ImageView = itemView.findViewById(R.id.category_imageview)
 }
 
-class CategoriesAdapter(private val categories: List<Category>, val onClick: (String) -> Unit): RecyclerView.Adapter<CategoriesViewHolder>() {
+class CategoriesAdapter(private val categories: List<Category>, val onClick: (String?, String?) -> Unit): RecyclerView.Adapter<CategoriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.category_item, parent, false)
 
@@ -29,7 +29,7 @@ class CategoriesAdapter(private val categories: List<Category>, val onClick: (St
         Picasso.get().load(categories[index].thumb).into(holder.imageView)
 
         holder.itemView.setOnClickListener {
-            categories[index].name?.let { it1 -> onClick(it1) }
+            onClick(categories[index].name, categories[index].description)
         }
     }
 
