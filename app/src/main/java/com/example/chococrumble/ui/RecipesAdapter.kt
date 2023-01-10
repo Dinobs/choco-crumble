@@ -25,7 +25,7 @@ class RecipesAdapter(private val recipes: List<Recipe>, val onClick: (Int) -> Un
         holder.textView.text = recipes[index].name
         Picasso.get().load(recipes[index].thumb).into(holder.imageView)
 
-        holder.textView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             recipes[index].id?.let { id -> onClick(id) }
         }
     }
