@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ChocoCrumble</string>
     <string name="ingredients">Ingrédients</string>
+    <string name="retry">Retry</string>
 </resources>

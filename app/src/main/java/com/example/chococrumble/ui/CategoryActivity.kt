@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.databinding.ActivityCategoryBinding
 import com.example.chococrumble.model.Recipe
 import com.example.chococrumble.request.GetRecipesRequest
+import com.example.chococrumble.utils.NetworkChecker
 
 class CategoryActivity: AppCompatActivity()  {
     private lateinit var recipeListRecyclerView: RecyclerView
@@ -22,6 +23,8 @@ class CategoryActivity: AppCompatActivity()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        NetworkChecker.checkInternetConnection(applicationContext)
 
         recipeBinding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(recipeBinding.root)

@@ -1,9 +1,7 @@
 package com.example.chococrumble
 
-import android.app.ActionBar
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +10,7 @@ import com.example.chococrumble.model.Category
 import com.example.chococrumble.request.GetCategoriesRequest
 import com.example.chococrumble.ui.CategoriesAdapter
 import com.example.chococrumble.ui.CategoryActivity
+import com.example.chococrumble.utils.NetworkChecker
 
 class MainActivity : AppCompatActivity() {
     private lateinit var categoryListRecyclerView: RecyclerView
@@ -22,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        NetworkChecker.checkInternetConnection(applicationContext)
 
         categoryBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(categoryBinding.root)

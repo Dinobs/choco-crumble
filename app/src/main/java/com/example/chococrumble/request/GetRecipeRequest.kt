@@ -47,10 +47,12 @@ class GetRecipeRequest {
             for (entry: Map.Entry<String, JsonElement> in entries.entrySet()) {
                 if (entry.key.startsWith("strIngredient") && entry.value.toString().isNotBlank()) {
                     val measureKey = entry.key.replace("strIngredient", "strMeasure")
-                    val measure: String = entries.get(measureKey).asString
+                    if (!entries.get(measureKey).isJsonNull) {
+                        val measure: String = entries.get(measureKey).asString
 
-                    if (measure.isNotBlank()) {
-                        ingredientsList.add(Ingredient(entry.value.asString, measure))
+                        if (measure.isNotBlank()) {
+                            ingredientsList.add(Ingredient(entry.value.asString, measure))
+                        }
                     }
                 }
             }
