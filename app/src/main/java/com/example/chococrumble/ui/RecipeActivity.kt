@@ -12,6 +12,7 @@ import com.example.chococrumble.databinding.ActivityRecipeBinding
 import com.example.chococrumble.model.Recipe
 import com.example.chococrumble.request.GetRecipeRequest
 import com.example.chococrumble.utils.NetworkChecker
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -29,13 +30,17 @@ class RecipeActivity: YouTubeBaseActivity() {
 
     private lateinit var ingredientListRecyclerView: RecyclerView
 
+    private lateinit var circularProgressIndicator: CircularProgressIndicator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        NetworkChecker.checkInternetConnection(applicationContext)
-
         recipeBinding = ActivityRecipeBinding.inflate(layoutInflater)
         setContentView(recipeBinding.root)
+
+        circularProgressIndicator = recipeBinding.progressCircular
+
+        NetworkChecker.checkInternetConnection(applicationContext)
 
         recipeTitleTextView = recipeBinding.recipeTitleTextview
         recipeImageView = recipeBinding.recipeImageview
@@ -88,6 +93,8 @@ class RecipeActivity: YouTubeBaseActivity() {
             Log.d("ytid", "youtube is null")
             youtubePlayerView.visibility = View.GONE
         }
+
+        circularProgressIndicator.visibility = View.GONE
 
     }
 }
