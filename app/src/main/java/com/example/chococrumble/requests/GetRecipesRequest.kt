@@ -19,13 +19,13 @@ class GetRecipesRequest {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("OKHTTP", e.localizedMessage)
+                e.localizedMessage?.let { Log.e("OKHTTP", it) }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 response.body?.string()?.let {
-                    var recipesResponse: RecipesResponse? = parseRecipesResponse(it)
-                    recipesResponse?.recipes?.let { recipes ->
+                    val recipesResponse: RecipesResponse = parseRecipesResponse(it)
+                    recipesResponse.recipes?.let { recipes ->
                         callback(recipes)
                     }
                 }

@@ -40,10 +40,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayCategories(categories: List<Category>) {
-        categories?.let { categories ->
-            runOnUiThread {
-                refreshView(categories)
-            }
+        runOnUiThread {
+            refreshView(categories)
         }
     }
 

@@ -1,11 +1,9 @@
 package com.example.chococrumble.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.adapters.IngredientsAdapter
@@ -32,6 +30,8 @@ class RecipeActivity: YouTubeBaseActivity() {
     private lateinit var ingredientListRecyclerView: RecyclerView
 
     private lateinit var circularProgressIndicator: CircularProgressIndicator
+
+    private val youtubeKey = "AIzaSyDsAli0TAc1zKTE4lJcH-vKV0jSW0KkofI"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,14 +69,13 @@ class RecipeActivity: YouTubeBaseActivity() {
         ingredientListRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
 
 
-        var onInitializedListener = object : YouTubePlayer.OnInitializedListener {
+        val onInitializedListener = object : YouTubePlayer.OnInitializedListener {
             override fun onInitializationSuccess(
                 provider: YouTubePlayer.Provider,
                 youTubePlayer: YouTubePlayer,
                 b: Boolean
             ) {
-                var ytId = recipe.youtube?.split("?v=")?.get(1)
-                Log.d("ytid", "id is $ytId")
+                val ytId = recipe.youtube?.split("?v=")?.get(1)
                 youTubePlayer.cueVideo(ytId)
             }
 
@@ -88,14 +87,12 @@ class RecipeActivity: YouTubeBaseActivity() {
         }
 
         if(recipe.youtube != null && recipe.youtube!!.isNotBlank()) {
-            Log.d("ytid", recipe.youtube!!)
-            youtubePlayerView.initialize("AIzaSyDsAli0TAc1zKTE4lJcH-vKV0jSW0KkofI",onInitializedListener);}
+
+            youtubePlayerView.initialize(youtubeKey,onInitializedListener);}
         else {
-            Log.d("ytid", "youtube is null")
             youtubePlayerView.visibility = View.GONE
         }
 
         circularProgressIndicator.visibility = View.GONE
-
     }
 }

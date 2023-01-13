@@ -1,11 +1,9 @@
 package com.example.chococrumble.activities
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,10 +49,8 @@ class CategoryActivity: AppCompatActivity()  {
     }
 
     private fun displayRecipes(recipes: List<Recipe>) {
-        recipes?.let { recipes ->
-            runOnUiThread {
-                refreshView(recipes)
-            }
+        runOnUiThread {
+            refreshView(recipes)
         }
     }
 

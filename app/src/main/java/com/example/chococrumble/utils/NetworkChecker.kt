@@ -10,7 +10,7 @@ class NetworkChecker {
             val manager = context.getSystemService(ConnectivityManager::class.java)
             val currentNetwork = manager.activeNetwork
 
-            return currentNetwork != null;
+            return currentNetwork != null
         }
 
         fun checkInternetConnection(context: Context) {

@@ -22,13 +22,13 @@ class GetRecipeRequest {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("OKHTTP", e.localizedMessage)
+                e.localizedMessage?.let { Log.e("OKHTTP", it) }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 response.body?.string()?.let {
-                    var recipesResponse: RecipesResponse? = parseRecipesResponse(it)
-                    recipesResponse?.recipes?.let { recipes ->
+                    val recipesResponse: RecipesResponse = parseRecipesResponse(it)
+                    recipesResponse.recipes?.let { recipes ->
                         callback(recipes[0])
                     }
                 }
@@ -37,9 +37,9 @@ class GetRecipeRequest {
     }
 
     private fun parseRecipesResponse(json: String): RecipesResponse {
-        var recipesResponse: RecipesResponse = Gson().fromJson(json, RecipesResponse::class.java)
+        val recipesResponse: RecipesResponse = Gson().fromJson(json, RecipesResponse::class.java)
 
-        var ingredientsList: MutableList<Ingredient> = mutableListOf()
+        val ingredientsList: MutableList<Ingredient> = mutableListOf()
 
         val entries: JsonObject? = getRecipeEntries(json)
 
@@ -64,7 +64,7 @@ class GetRecipeRequest {
     }
 
     private fun getRecipeEntries(json: String): JsonObject? {
-        var jsonObject: JsonObject? = Gson().fromJson(json, JsonObject::class.java)
+        val jsonObject: JsonObject? = Gson().fromJson(json, JsonObject::class.java)
         if (jsonObject != null) {
             return jsonObject.get("meals").asJsonArray[0].asJsonObject
         }
