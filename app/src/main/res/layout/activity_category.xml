@@ -45,6 +45,7 @@
                 android:id="@+id/category_description_item_textview"
                 app:layout_constraintTop_toTopOf="parent"
                 android:justificationMode="inter_word" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
