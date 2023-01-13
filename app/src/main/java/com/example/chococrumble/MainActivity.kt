@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.databinding.ActivityMainBinding
-import com.example.chococrumble.model.Category
-import com.example.chococrumble.request.GetCategoriesRequest
-import com.example.chococrumble.ui.CategoriesAdapter
-import com.example.chococrumble.ui.CategoryActivity
+import com.example.chococrumble.models.Category
+import com.example.chococrumble.requests.GetCategoriesRequest
+import com.example.chococrumble.adapters.CategoriesAdapter
+import com.example.chococrumble.activities.CategoryActivity
 import com.example.chococrumble.utils.NetworkChecker
 
 class MainActivity : AppCompatActivity() {

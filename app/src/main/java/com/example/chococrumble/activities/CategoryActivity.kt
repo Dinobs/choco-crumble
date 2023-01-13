@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chococrumble.adapters.RecipesAdapter
 import com.example.chococrumble.databinding.ActivityCategoryBinding
-import com.example.chococrumble.model.Recipe
-import com.example.chococrumble.request.GetRecipesRequest
+import com.example.chococrumble.models.Recipe
+import com.example.chococrumble.requests.GetRecipesRequest
 import com.example.chococrumble.utils.NetworkChecker
 
 class CategoryActivity: AppCompatActivity()  {

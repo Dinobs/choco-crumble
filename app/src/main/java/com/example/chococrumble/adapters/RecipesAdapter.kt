@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.R
-import com.example.chococrumble.model.Recipe
+import com.example.chococrumble.models.Recipe
 import com.squareup.picasso.Picasso
 
 class RecipesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -16,7 +16,7 @@ class RecipesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 }
 
 class RecipesAdapter(private val recipes: List<Recipe>, val onClick: (Int) -> Unit): RecyclerView.Adapter<RecipesViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecipesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipesViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
         return RecipesViewHolder(itemView)
     }

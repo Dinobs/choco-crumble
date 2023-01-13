@@ -27,18 +27,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.CategoryActivity"
+            android:name=".activities.CategoryActivity"
             android:exported="true"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".ui.RecipeActivity"
+            android:name=".activities.RecipeActivity"
             android:exported="true"
-            android:parentActivityName=".ui.CategoryActivity">
+            android:parentActivityName=".activities.CategoryActivity">
         </activity>
         <activity
             android:process=":error_handler"
-            android:name=".ui.CrashActivity"
+            android:name=".activities.CrashActivity"
             android:exported="false"/>
     </application>
 

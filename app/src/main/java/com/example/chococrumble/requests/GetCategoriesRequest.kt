@@ -1,8 +1,8 @@
-package com.example.chococrumble.request
+package com.example.chococrumble.requests
 
 import android.util.Log
-import com.example.chococrumble.model.CategoriesResponse
-import com.example.chococrumble.model.Category
+import com.example.chococrumble.responses.CategoriesResponse
+import com.example.chococrumble.models.Category
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException

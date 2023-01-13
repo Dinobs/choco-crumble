@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.R
-import com.example.chococrumble.model.Ingredient
+import com.example.chococrumble.models.Ingredient
 
 
 class IngredientsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

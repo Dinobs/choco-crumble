@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.activities
 
 import android.os.Bundle
 import android.widget.ImageView
@@ -6,9 +6,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chococrumble.adapters.IngredientsAdapter
 import com.example.chococrumble.databinding.ActivityRecipeBinding
-import com.example.chococrumble.model.Recipe
-import com.example.chococrumble.request.GetRecipeRequest
+import com.example.chococrumble.models.Recipe
+import com.example.chococrumble.requests.GetRecipeRequest
 import com.example.chococrumble.utils.NetworkChecker
 import com.squareup.picasso.Picasso
 

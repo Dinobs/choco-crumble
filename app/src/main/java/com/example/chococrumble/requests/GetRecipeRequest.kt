@@ -1,9 +1,9 @@
-package com.example.chococrumble.request
+package com.example.chococrumble.requests
 
 import android.util.Log
-import com.example.chococrumble.model.Ingredient
-import com.example.chococrumble.model.Recipe
-import com.example.chococrumble.model.RecipesResponse
+import com.example.chococrumble.models.Ingredient
+import com.example.chococrumble.models.Recipe
+import com.example.chococrumble.responses.RecipesResponse
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject

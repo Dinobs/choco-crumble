@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chococrumble.R
-import com.example.chococrumble.model.Category
+import com.example.chococrumble.models.Category
 import com.squareup.picasso.Picasso
 
 class CategoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

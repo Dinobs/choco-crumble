@@ -1,4 +1,4 @@
-package com.example.chococrumble.model
+package com.example.chococrumble.models
 
 class Ingredient(val name: String, val measure: String) {
     override fun toString(): String {

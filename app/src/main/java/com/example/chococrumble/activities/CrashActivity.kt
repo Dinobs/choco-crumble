@@ -1,4 +1,4 @@
-package com.example.chococrumble.ui
+package com.example.chococrumble.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

@@ -1,7 +1,7 @@
 package com.example.chococrumble
 
 import android.app.Application
-import com.example.chococrumble.ui.CrashActivity
+import com.example.chococrumble.activities.CrashActivity
 import com.example.chococrumble.utils.GlobalExceptionHandler
 
 class App: Application() {

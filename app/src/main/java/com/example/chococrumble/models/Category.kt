@@ -1,4 +1,4 @@
-package com.example.chococrumble.model
+package com.example.chococrumble.models
 
 import com.google.gson.annotations.SerializedName
 
