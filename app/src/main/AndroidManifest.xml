@@ -34,7 +34,7 @@
         <activity
             android:name=".activities.RecipeActivity"
             android:exported="true"
-            android:parentActivityName=".activities.CategoryActivity">
+            android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:process=":error_handler"
