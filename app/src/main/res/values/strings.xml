@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ChocoCrumble</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="retry">Retry</string>
+    <string name="biscuit">A biscuit</string>
+    <string name="meal_picture">A picture of the meal</string>
+    <string name="category_picture">A picture of the category</string>
 </resources>
